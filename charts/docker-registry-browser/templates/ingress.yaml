@@ -1,7 +1,7 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "docker-reegistry-browser.fullname" . -}}
+{{- $fullName := include "docker-registry-browser.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
-{{- $serviceName := include "docker-registry-browser.fullname" . -}}
+# {{- $serviceName := include "docker-registry-browser.fullname" . -}}
 {{- $servicePort := .Values.service.port -}}
 {{- $path := .Values.ingress.path -}}
 # {{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
@@ -32,7 +32,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ $serviceName }}
+                name: {{ $fullName }}
                 port: 
                   number: {{ $servicePort }}
     {{- end -}}

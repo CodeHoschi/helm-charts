@@ -2,7 +2,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "docker-reegistry-browser.name" -}}
+{{- define "docker-registry-browser.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -11,7 +11,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "docker-reegistry-browser.fullname" -}}
+{{- define "docker-registry-browser.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -27,16 +27,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "docker-reegistry-browser.chart" -}}
+{{- define "docker-registry-browser.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "docker-reegistry-browser.labels" -}}
-helm.sh/chart: {{ include "docker-reegistry-browser.chart" . }}
-{{ include "docker-reegistry-browser.selectorLabels" . }}
+{{- define "docker-registry-browser.labels" -}}
+helm.sh/chart: {{ include "docker-registry-browser.chart" . }}
+{{ include "docker-registry-browser.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,17 +46,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "docker-reegistry-browser.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "docker-reegistry-browser.name" . }}
+{{- define "docker-registry-browser.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "docker-registry-browser.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "docker-reegistry-browser.serviceAccountName" -}}
+{{- define "docker-registry-browser.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "docker-reegistry-browser.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "docker-registry-browser.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
