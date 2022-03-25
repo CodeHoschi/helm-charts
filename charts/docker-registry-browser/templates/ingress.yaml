@@ -1,7 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "docker-reegistry-browser.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
-{{- $serviceName := include "docker-registry.fullname" . -}}
+{{- $serviceName := include "docker-registry-browser.fullname" . -}}
 {{- $servicePort := .Values.service.port -}}
 {{- $path := .Values.ingress.path -}}
 # {{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
