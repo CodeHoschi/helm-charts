@@ -14,7 +14,7 @@ kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    # {{- include "docker-reegistry-browser.labels" . | nindent 4 }}
+    # {{- include "docker-registry-browser.labels" . | nindent 4 }}
 {{- if .Values.ingress.labels }}
 {{ toYaml .Values.ingress.labels | indent 4 }}
 {{- end }}
