@@ -19,7 +19,7 @@ image:
 # imagePullSecrets:
 # - name: docker
 service:
-  name: registry
+  name: btb-api
   type: ClusterIP
   # clusterIP:
   port: 3030
