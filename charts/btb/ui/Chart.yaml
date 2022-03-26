@@ -1,0 +1,10 @@
+apiVersion: v2
+description: Fork from stable Docker Registry chart
+name: btb-ui
+version: 1.0.0
+appVersion: 0.1.1
+home: https://gitlab.lmwpva.de/p.wuenscher/bybit-trade-buddy-api-fastify.git
+icon: https://helm.melillo.me/docker-registry-logo.png
+sources:
+  - https://gitlab.lmwpva.de/p.wuenscher/bybit-trade-buddy-api-fastify.git
+deprecated: false
