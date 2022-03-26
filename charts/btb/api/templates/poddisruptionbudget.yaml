@@ -1,0 +1,17 @@
+{{- if .Values.podDisruptionBudget -}}
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ template "btb-api.fullname" . }}
+  labels:
+    app: {{ template "btb-api.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "btb-api.name" . }}
+      release: {{ .Release.Name }}
+{{ toYaml .Values.podDisruptionBudget | indent 2 }}
+{{- end -}}
