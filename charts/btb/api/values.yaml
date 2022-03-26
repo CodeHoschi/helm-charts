@@ -18,8 +18,13 @@ image:
   pullPolicy: IfNotPresent
 # imagePullSecrets:
 # - name: docker
+
+env:
+  apiKey: ''
+  apiSecret: ''
+
 service:
-  name: btb-api
+  name: api
   type: ClusterIP
   # clusterIP:
   port: 3030
