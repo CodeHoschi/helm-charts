@@ -14,7 +14,7 @@ podLabels: {}
 
 image:
   repository: registry.kube.lmwpva.de/bybit-trade-buddy-api-fastify
-  tag: 0.1.0
+  tag: v0.1.0
   pullPolicy: IfNotPresent
 # imagePullSecrets:
 # - name: docker
