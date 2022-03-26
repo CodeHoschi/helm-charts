@@ -71,6 +71,10 @@ spec:
           resources:
 {{ toYaml .Values.resources | indent 12 }}
           env:
+            - name: BYBIT_API_KEY
+              value: "{{ .Values.env.apiKey }}"
+            - name: BYBIT_API_SECRET
+              value: "{{ .Values.env.apiSecret }}"
 {{- if .Values.secrets.htpasswd }}
             - name: REGISTRY_AUTH
               value: "htpasswd"
