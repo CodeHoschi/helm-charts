@@ -53,21 +53,21 @@ spec:
           # - serve
           # - /etc/docker/registry/config.yml
           ports:
-            - containerPort: 3030
+            - containerPort: 80
           livenessProbe:
             httpGet:
 {{- if .Values.tlsSecretName }}
               scheme: HTTPS
 {{- end }}
               path: /
-              port: 3030
+              port: 80
           readinessProbe:
             httpGet:
 {{- if .Values.tlsSecretName }}
               scheme: HTTPS
 {{- end }}
               path: /
-              port: 3030
+              port: 80
           resources:
 {{ toYaml .Values.resources | indent 12 }}
           env:
